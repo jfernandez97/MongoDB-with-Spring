@@ -5,6 +5,7 @@ import com.mongodb.mongodbSpring.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class ProductController {
         return service.createProduct(product);
     }
     @GetMapping
-    public List<Product> findAll(){
+    public List<Product> findAll(HttpSession session){
         return service.findAll();
     }
     @GetMapping("/product")
